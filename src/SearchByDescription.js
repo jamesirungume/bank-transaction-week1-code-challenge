@@ -2,7 +2,12 @@ import React from 'react';
 import './App.css';
 
 
-function SearchTransactionForm({ searchItem, handleDescriptionSearch }) {
+function SearchTransactionForm({ searchItem, onsearchNewItem }) {
+
+    function handleDescriptionSearch(e) {
+        onsearchNewItem(e.target.value)
+    }
+
   return (
     <div className="search-form-container">
       <form>
