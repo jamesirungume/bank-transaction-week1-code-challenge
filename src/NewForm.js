@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-function NewForm({addNewTransactions}) {
+function NewForm({addNewTransaction}) {
     const [updatedTransaction,setUpdatedTransaction] = useState({
         description:"",
         amount:"",
@@ -7,6 +7,7 @@ function NewForm({addNewTransactions}) {
         date:"",
     })
  function handleInputChange(e) {
+
     const { name,value } = e.target;
     setUpdatedTransaction((lastTransaction) => ({
         ...lastTransaction,
@@ -14,9 +15,10 @@ function NewForm({addNewTransactions}) {
  }))
   
  }
- const handleSubmit = () => {
-  addNewTransactions(updatedTransaction);
-  setNewTransaction({
+ const handleSubmit = (e) => {
+  e.preventDefault()
+  addNewTransaction(updatedTransaction);
+  setUpdatedTransaction({
   description:"",
   amount:"",
   category:"",
