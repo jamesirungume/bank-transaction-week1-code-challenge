@@ -32,9 +32,9 @@ const handleDeleteTransaction = (id) => {
   });
 
   return (
-    <div>
+    <div id = "app">
       <SearchByDescription searchNewItem={searchItem} onsearchNewItem={setSearchItem} />
-      <TransactionList filteredTransactions={filteredTransaction} onDeleteTransaction={handleDeleteTransaction} />
+      <TransactionList  filteredTransactions={filteredTransaction} onDeleteTransaction={handleDeleteTransaction} />
       <NewForm addNewTransactions={handleNewTransaction} />
       
     </div>

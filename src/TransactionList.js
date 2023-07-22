@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+// import './App.css';
 
 function TransactionList({ filteredTransactions, onDeleteTransaction }) {
   const handleDeleteTransaction = (id) => {
@@ -10,8 +10,8 @@ function TransactionList({ filteredTransactions, onDeleteTransaction }) {
 
   return (
     <div className="App">
-      <h1>Transacted lists</h1>
-      <table>
+      <h1 id ="list" >Transacted lists</h1>
+      <table className='table'>
         <thead>
           <tr>
             <th style={{ padding: '10px', border: '1px solid black' }}>Description</th>

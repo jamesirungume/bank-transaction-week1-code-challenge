@@ -1,18 +1,23 @@
-import React from "react";
+import React from 'react';
+import './App.css';
 
-function SearchByDescription({searchItem,onSearchItemChange}) {
-    function handleDescriptionSearch(e) {
-        onSearchItemChange(e.target.value)
-    }
+
+function SearchTransactionForm({ searchItem, handleDescriptionSearch }) {
   return (
-    <div>
-        <form style={{ padding: '10px'}}>
-            <label>
-                Search Transaction: 
-            <input  placeholder ="search" type="text" name="description"  value= {searchItem} onChange={handleDescriptionSearch}/>
-            </label>
-        </form>
+    <div className="search-form-container">
+      <form>
+        <label className="label">SEARCH TRANSACTION:</label>
+        <input
+          className="input"
+          placeholder="Search"
+          type="text"
+          name="description"
+          value={searchItem}
+          onChange={handleDescriptionSearch}
+        />
+      </form>
     </div>
-  )
+  );
 }
-export default SearchByDescription;
+
+export default SearchTransactionForm;
