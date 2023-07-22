@@ -23,10 +23,9 @@ function App() {
     setDisplayTransaction((lastTransaction) => [...lastTransaction, newTransaction]);
   }
 
-  const handleDeleteTransaction = (id) => {
-    // Filter out the transaction with the given id and update the state
-    setDisplayTransaction((prevTransactions) => prevTransactions.filter((transaction) => transaction.id !== id));
-  };
+const handleDeleteTransaction = (id) => {
+  setDisplayTransaction((previousTransaction) => previousTransaction.filter(transaction => transaction.id !==id))
+}
 
   const filteredTransaction = displayAllTransaction.filter(transaction => {
     return transaction.description.toLowerCase().includes(searchItem.toLowerCase());
@@ -34,9 +33,10 @@ function App() {
 
   return (
     <div>
+      <SearchByDescription searchNewItem={searchItem} onsearchNewItem={setSearchItem} />
       <TransactionList filteredTransactions={filteredTransaction} onDeleteTransaction={handleDeleteTransaction} />
       <NewForm addNewTransactions={handleNewTransaction} />
-      <SearchByDescription searchNewItem={searchItem} onsearchNewItem={setSearchItem} />
+      
     </div>
   );
 }

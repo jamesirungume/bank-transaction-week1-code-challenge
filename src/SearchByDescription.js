@@ -6,10 +6,10 @@ function SearchByDescription({searchItem,onSearchItemChange}) {
     }
   return (
     <div>
-        <form>
+        <form style={{ padding: '10px'}}>
             <label>
-                search Transaction
-            <input type="text" name="description"  value= {searchItem} onChange={handleDescriptionSearch}/>
+                Search Transaction: 
+            <input  placeholder ="search" type="text" name="description"  value= {searchItem} onChange={handleDescriptionSearch}/>
             </label>
         </form>
     </div>

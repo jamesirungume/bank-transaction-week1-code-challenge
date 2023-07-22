@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function TransactionList({ filteredTransactions, onDeleteTransaction }) {
-
   const handleDeleteTransaction = (id) => {
     onDeleteTransaction(id);
   };
+
+  const sortedTransactions = filteredTransactions.sort((a,b) => a.description.localeCompare(b.description))
 
   return (
     <div className="App">
@@ -21,14 +22,14 @@ function TransactionList({ filteredTransactions, onDeleteTransaction }) {
           </tr>
         </thead>
         <tbody>
-          {filteredTransactions.map((transaction) => (
+          {sortedTransactions.map((transaction) => (
             <tr key={transaction.id}>
               <td>{transaction.description}</td>
               <td>{transaction.category}</td>
               <td>{transaction.amount}</td>
               <td>{transaction.date}</td>
               <td>
-                <button onClick={() => handleDeleteTransaction(transaction.id)}>Delete</button>
+                <button onClick={() => handleDeleteTransaction(transaction.id)}>delete</button>
               </td>
             </tr>
           ))}
