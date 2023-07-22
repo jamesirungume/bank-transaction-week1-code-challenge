@@ -1,19 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-function TransactionList() {
-  const [displayTransaction, setDisplayTransaction] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/transactions")
-      .then((resp) => resp.json())
-      .then((data) => {
-        setDisplayTransaction(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+function TransactionList({filtereTransactions}) {
+  
 
   return (
     <div className="App">
@@ -30,10 +19,10 @@ function TransactionList() {
         <tbody>
           {displayTransaction.map((transaction) => (
             <tr key={transaction.id}>
-              <td>{transaction.description}</td>
-              <td>{transaction.category}</td>
-              <td>{transaction.amount}</td>
-              <td>{transaction.date}</td>
+              <td>{filtereTransactions.description}</td>
+              <td>{filtereTransactions.category}</td>
+              <td>{filtereTransactions.amount}</td>
+              <td>{filtereTransactions.date}</td>
             </tr>
           ))}
         </tbody>

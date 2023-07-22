@@ -1,15 +1,27 @@
-import React from "react";
-function NewForm() {
+import React, {useState,useEffect} from "react";
+function NewForm({addNewTransactions}) {
     const [updatedTransaction,setUpdatedTransaction] = useState({
-        descrip
+        description:"",
+        amount:"",
+        category:"",
+        date:"",
     })
- function handleTransaction(e) {
+ function handleInputChange(e) {
     const { name,value } = e.target;
     setUpdatedTransaction((lastTransaction) => ({
         ...lastTransaction,
         [name]: value,
  }))
   
+ }
+ const handleSubmit = () => {
+  addNewTransactions(updatedTransaction);
+  setNewTransaction({
+  description:"",
+  amount:"",
+  category:"",
+  date:"",
+})
  }
 
 
@@ -54,10 +66,11 @@ return (
             onChange={handleInputChange}
           />
         </label>
-        <button>
-            
+        <button  onClick ={handleSubmit} >
+           Add transaction
         </button>
         </form>
 </div>
 )
 }
+export default NewForm;
