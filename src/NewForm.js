@@ -13,8 +13,10 @@ function NewForm({ addNewTransaction }) {
     setUpdatedTransaction((lastTransaction) => ({
       ...lastTransaction,
       [name]: value,
+     
     }));
   }
+  console.log(updatedTransaction)
 
   const handleSubmit = (e) => {
     e.preventDefault();
